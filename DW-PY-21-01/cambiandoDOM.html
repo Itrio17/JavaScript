@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 2: Cambiando el DOM</title>
+</head>
+
+<body>
+
+    <p>One</p>
+
+    <p>Two</p>
+
+    <p>Three</p>
+
+    <script>
+
+    let parrafos = document.body.getElementsByTagName('p');
+
+    console.log('Colección de nodos', parrafos)
+
+    console.log('primer nodo', parrafos[0])
+    console.log('segundo nodo', parrafos[1])
+    console.log('tercero nodo', parrafos[2])
+
+    document.body.insertBefore(parrafos[2], parrafos[0]);
+
+    parrafos = document.body.getElementsByTagName('p');
+
+    console.log('Colección de nodos 2', parrafos)
+
+    console.log('primer nodo 2', parrafos[0])
+    console.log('segundo nodo 2', parrafos[1])
+    console.log('tercero nodo 2', parrafos[2])
+
+    document.body.insertBefore(parrafos[1], parrafos[0]);
+    </script>
+</body>
+</html>

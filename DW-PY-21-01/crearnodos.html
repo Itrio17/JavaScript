@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <blockquote id="quote">
+        No book can ever be finished. While working on it we learn
+        just enough to find it immature the moment we turn away
+        from it.
+
+        <!--Aqui va nuestro nuevo nodo-->
+
+    </blockquote>
+
+    <!--el autor de la cita-->
+
+    <script>
+        function createNode(type, child) {
+            let node = document.createElement(type)
+
+            if(typeof child === 'string'){
+                let text = document.createTextNode(child)
+                node.appendChild(text)
+            } else {
+                node.appendChild(child)
+            }
+            return node;
+        }
+
+        console.log('primer nodo', createNode('h1', 'hello world!'))
+        console.log('primer nodo', createNode('strong', 'hello world!'))
+
+        console.log('final nodo', createNode('h1', createNode('strong', 'hello world!')))
+
+        console.log('final nodo', createNode('h1', createNode('p', createNode('strong', 'Hello world!'))))
+
+        document.getElementById('quote')
+            .appendChild(
+                createNode('h1', createNode('p', createNode('strong', 'Hello world!')))
+            );
+
+    </script>
+</body>
+</html>
